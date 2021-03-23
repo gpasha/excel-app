@@ -30,13 +30,6 @@ export function createTable(rowsCount = 15) {
     const colsCount = ROWS.Z - ROWS.A + 1
     const rows = []
 
-    // my 
-    // const cols = new Array(colsCount)
-    //                 .fill('')
-    //                 .map( (el, index) => {
-    //                     return createCol(String.fromCharCode(ROWS.A + index))
-    //                 }).join('')
-
     const cols = new Array(colsCount)
                     .fill('')                    
                     .map( toChar )
@@ -48,11 +41,8 @@ export function createTable(rowsCount = 15) {
                     .map( createCell )
                     .join('')
 
-    console.log('cols => ', cols)
-    console.log('cells => ', cells)
-
     rows.push(createRow(0, cols))
-    
+
     for (let i = 0; i < rowsCount; i++) {
         rows.push(createRow(i + 1, cells))
     }

@@ -12,7 +12,7 @@ export class DomListener {
     }
 
     initDomListeners() {
-        console.log("initDomListeners listeners: ", this.listeners )
+        // console.log("initDomListeners listeners: ", this.listeners )
         this.listeners.forEach(listener => {
             let method = formMethodName(listener)
             let name = this.name || ''

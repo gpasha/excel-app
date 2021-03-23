@@ -13,21 +13,21 @@ export class Excel {
     this.components = this.components.map(Component => {      
       const $compRoot = $.create('div', Component.className)
       const component = new Component($compRoot)
-      console.log("component => ", component)
-      if (component.name) {
-        window['c' + component.name] = component;
-      }
+      // console.log("component => ", component)
+      // if (component.name) {
+      //   window['c' + component.name] = component;
+      // }
       $compRoot.html(component.toHTML())
       $root.append($compRoot)
       return component
     });
-    console.log("$root => ", $root)
+    // console.log("$root => ", $root)
     return $root
   }
 
   render() {
     this.$coreRoot.append(this.getRoot())
     this.components.forEach(component  => component.init());
-    console.log("this.components => ", this.components)
+    // console.log("this.components => ", this.components)
   }
 }
