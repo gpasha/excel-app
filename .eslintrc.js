@@ -13,6 +13,11 @@ module.exports = {
     extends: ["eslint:recommended", "google"],
     rules: {
         'semi': 'off',
-        'coma-dangle': 'off'
-    }
+        'coma-dangle': 'off',
+        'object-curly-spacing': 'off',
+        'indent': 'off',
+        'quotes': 'off',
+        'eol-last': 'off',
+        'require-jsdoc': 'off'
+    },
 }

@@ -6,13 +6,6 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = (env, argv) => {
   console.log('argv.mode', argv.mode)
-  // if (argv.mode === 'development') {
-  // config.devtool = 'source-map';
-  // }
-
-  // if (argv.mode === 'production') {
-  // //...
-  // }
 
   const isProd = argv.mode === 'production'
   const isDev = !isProd
@@ -38,7 +31,7 @@ module.exports = (env, argv) => {
     ]
 
     if (isDev) {
-      base.push(new ESLintPlugin())
+      // base.push(new ESLintPlugin())
     }
 
     return base
@@ -59,7 +52,7 @@ module.exports = (env, argv) => {
       extensions: ['.js'],
       alias: {
         '@': path.resolve(__dirname, 'src'),
-        '@core': path.resolve(__dirname, 'src', 'core'),
+        '@core': path.resolve(__dirname, 'src/core'),
       },
     },
     plugins: plugins(),
@@ -91,6 +84,7 @@ module.exports = (env, argv) => {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-class-properties']
             },
           },
         }],
