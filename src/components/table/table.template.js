@@ -3,20 +3,29 @@ const ROWS = {
     Z: 90
 }
 
-function createCell() {
+function createCell(_, index) {
     return `
-        <div class="cell" contenteditable=""></div>
+        <div class="cell" data-index="${index}" contenteditable=""></div>
     `
 }
 
-function createCol(el) {
-    return `<div class="column">${el}</div>`
+function createCol(el, index) {
+    return `
+        <div class="column" data-index="${index}" data-type="resizable">
+            ${el}
+            <div class="col-resize" data-resize="col"></div>
+        </div>
+    `
 }
 
 function createRow(rowNumber, content) {
+    let resizer = rowNumber ? '<div class="row-resize" data-resize="row"></div>' : ''
     return `
-        <div class="row">
-            <div class="row-info">${rowNumber ? rowNumber : ''}</div>
+        <div class="row" data-type="resizable">
+            <div class="row-info">
+                ${rowNumber ? rowNumber : ''}
+                ${resizer}
+            </div>
             <div class="row-data">${content}</div>
         </div>
     `
