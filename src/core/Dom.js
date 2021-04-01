@@ -57,13 +57,6 @@ class Dom {
     }
     
     css(styles) {
-        //old version
-        // for (let key in styles) {
-        //     if (styles.hasOwnProperty(key)) {
-        //         this.$el.style[key] = styles[key]
-        //     }
-        // }
-        //actual version
         Object
             .keys(styles)
             .forEach(key => this.$el.style[key] = styles[key])

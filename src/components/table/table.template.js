@@ -5,7 +5,7 @@ const ROWS = {
 
 function createCell(_, index) {
     return `
-        <div class="cell" data-index="${index}" data-cell="true" contenteditable=""></div>
+        <div class="cell" data-index="${index}" contenteditable=""></div>
     `
 }
 
@@ -21,7 +21,7 @@ function createCol(el, index) {
 function createRow(rowNumber, content) {
     let resizer = rowNumber ? '<div class="row-resize" data-resize="row"></div>' : ''
     return `
-        <div class="row" data-row="true" data-type="resizable">
+        <div class="row" data-type="resizable">
             <div class="row-info">
                 ${rowNumber ? rowNumber : ''}
                 ${resizer}
